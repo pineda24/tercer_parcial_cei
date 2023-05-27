@@ -91,8 +91,8 @@ entrada = st.text_input("Ingrar una expresión: ")
 entrada += '\n'
 
 # Análisis de la expresión y cálculo del resultado
-if st.button("Revisar y calcular",):
+if st.button("Exprecion:"):
     if parser.parse(entrada, lexer=lexer):
-        st.success(f'{entrada}: {parser.parse(entrada, lexer=lexer):.3f}')
+        st.success(f'{entrada} = {parser.parse(entrada, lexer=lexer):.3f}')
     else:
         st.error("La expresión no es válida")
