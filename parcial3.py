@@ -87,11 +87,11 @@ lexer = lex.lex()
 parser = yacc.yacc()
 
 # Captura de la entrada del usuario
-entrada = st.text_input("Ingrar una expresión: ")
+entrada = st.text_input("Expresión ")
 entrada += '\n'
 
 # Análisis de la expresión y cálculo del resultado
-if st.button("Exprecion:"):
+if st.button("Calcular"):
     if parser.parse(entrada, lexer=lexer):
         st.success(f'{entrada} = {parser.parse(entrada, lexer=lexer):.3f}')
     else:
