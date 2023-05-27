@@ -4,13 +4,14 @@ import streamlit as st
 
 # Configuración de la página de Streamlit
 st.set_page_config(
-    page_title="Parcial 3"
+    page_title="Parcial 3 - COMPILADORES E INTERPRESES"
 )
 
 # Título y detalles del equipo
-st.title("Parcial 3")
-st.write("338919 - RAUL HIRAM PINEDA CHAVEZ")
+st.title("Parcial 3 - COMPILADORES E INTERPRESES")
 st.write("338710 - MARIO ALBERTO TERAN ACOSTA")
+st.write("338919 - RAUL HIRAM PINEDA CHAVEZ")
+
 
 # Definición de tokens
 tokens = ('NUME', 'SUMA', 'RESTA', 'MULT', 'DIV', 'PARIZQ', 'PARDER', 'EOL')
@@ -32,7 +33,7 @@ def t_NUME(t):
 
 # Función de error para manejar caracteres no reconocidos
 def t_error(t):
-    print("Carácter inesperado:", t.value[0])
+    st.error("Hubo un error lexico...")
     
 # Definición de la regla inicial de la gramática
 def p_s(p):
@@ -86,12 +87,12 @@ lexer = lex.lex()
 parser = yacc.yacc()
 
 # Captura de la entrada del usuario
-entrada = st.text_input("Ingrese una expresión: ")
+entrada = st.text_input("Ingrar una expresión: ")
 entrada += '\n'
 
 # Análisis de la expresión y cálculo del resultado
-if st.button("Revisar y calcular"):
+if st.button("Revisar y calcular",):
     if parser.parse(entrada, lexer=lexer):
-        st.success(f'La expresión es válida y el resultado es: {parser.parse(entrada, lexer=lexer):.3f}')
+        st.success(f'{entrada}: {parser.parse(entrada, lexer=lexer):.3f}')
     else:
         st.error("La expresión no es válida")
